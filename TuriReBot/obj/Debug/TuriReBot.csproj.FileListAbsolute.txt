@@ -1,0 +1,43 @@
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\obj\Debug\TuriReBot.csprojResolveAssemblyReference.cache
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\obj\Debug\TuriReBot.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\Bot Application.dll.config
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\Bot Application.dll
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\Bot Application.pdb
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\Autofac.dll
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\Chronic.dll
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\FLS.dll
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\GAF.dll
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\Microsoft.Bot.Builder.Autofac.dll
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\Microsoft.Bot.Builder.dll
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\Microsoft.Bot.Connector.dll
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\Microsoft.IdentityModel.Protocol.Extensions.dll
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\Microsoft.Rest.ClientRuntime.dll
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\Microsoft.WindowsAzure.Configuration.dll
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\Newtonsoft.Json.dll
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\System.Net.Http.Formatting.dll
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\System.Web.Http.dll
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\System.Web.Http.WebHost.dll
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\Autofac.xml
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\Microsoft.Bot.Builder.xml
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\Microsoft.Bot.Builder.Autofac.xml
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\Microsoft.Bot.Connector.xml
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\Microsoft.IdentityModel.Protocol.Extensions.xml
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\Microsoft.WindowsAzure.Configuration.xml
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\Newtonsoft.Json.xml
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\System.Net.Http.Formatting.xml
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\System.Web.Http.xml
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\System.Web.Http.WebHost.xml
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\ar\Microsoft.Bot.Builder.resources.dll
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\cs\Microsoft.Bot.Builder.resources.dll
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\de-dE\Microsoft.Bot.Builder.resources.dll
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\en\Microsoft.Bot.Builder.resources.dll
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\es\Microsoft.Bot.Builder.resources.dll
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\fa\Microsoft.Bot.Builder.resources.dll
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\fr\Microsoft.Bot.Builder.resources.dll
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\ja\Microsoft.Bot.Builder.resources.dll
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\ru\Microsoft.Bot.Builder.resources.dll
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\bin\zh-hans\Microsoft.Bot.Builder.resources.dll
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\obj\Debug\Bot Application.dll
+C:\Users\LENOVO\Documents\Visual Studio 2017\Projects\TuriReBot\TuriReBot\obj\Debug\Bot Application.pdb
