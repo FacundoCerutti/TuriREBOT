@@ -28,12 +28,12 @@ namespace TuriReBot.ReModel
             var vyoung = Age.MembershipFunctions.AddTriangle("muy joven", 15, 15, 18);
             var young = Age.MembershipFunctions.AddTriangle("joven", 15, 18, 30);
             var adult = Age.MembershipFunctions.AddTriangle("adulto", 18, 30, 50);
-            var mature = Age.MembershipFunctions.AddTriangle("mayor", 30, 50, 80);           
+            var mature = Age.MembershipFunctions.AddTriangle("mayor", 30, 50, 100);           
             // Presupuesto
-            var low = Budget.MembershipFunctions.AddTriangle("bajo", 1000, 1000, 7000);
-            var medium = Budget.MembershipFunctions.AddTriangle("medio", 5000, 7000, 20000);
-            var high = Budget.MembershipFunctions.AddTriangle("alto", 18000, 20000, 40000);
-            var vhigh = Budget.MembershipFunctions.AddTriangle("muy alto", 35000, 40000, 100000);
+            var low = Budget.MembershipFunctions.AddTriangle("bajo", 1000, 1000, 10000);
+            var medium = Budget.MembershipFunctions.AddTriangle("medio", 7000, 10000, 35000);
+            var high = Budget.MembershipFunctions.AddTriangle("alto", 28000, 35000, 70000);
+            var vhigh = Budget.MembershipFunctions.AddTriangle("muy alto", 60000, 70000, 1000000);
             // Alcance
             var national = Reach.MembershipFunctions.AddTriangle("nacional", 0, 50, 100);
             var latin = Reach.MembershipFunctions.AddTriangle("latino", 50, 100, 150);

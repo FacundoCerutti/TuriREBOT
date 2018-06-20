@@ -135,18 +135,64 @@ namespace TuriReBot.Dialogs
                 control = 0;
                 context.Wait(MessageNameReceived);
             }
+            if (control == 6)
+            {
+                await context.PostAsync("Que yo sepa, los nombres no tienen numeros, por favor dime tu nombre");
+                control = 0;
+                context.Wait(MessageNameReceived);
+            }
         }
 
         public async Task MessageAgeReceived(IDialogContext context, IAwaitable<object> result)
         {
-            var activity = await result as Activity;
+            var activity = await result as Activity;            
             control = Namecontrolar(activity.Text);
             if (control == 0)
             {
-                age = Double.Parse(activity.Text);
-                await context.PostAsync("Cual es su presupuesto?");
-                control = 0;
-                context.Wait(MessageBudgetReceived);
+                if(
+                activity.Text.Contains("a") || activity.Text.Contains("b") || activity.Text.Contains("c") ||
+                activity.Text.Contains("d") || activity.Text.Contains("e") || activity.Text.Contains("f") || 
+                activity.Text.Contains("g") || activity.Text.Contains("h") || activity.Text.Contains("i") || 
+                activity.Text.Contains("j") || activity.Text.Contains("k") || activity.Text.Contains("l") || 
+                activity.Text.Contains("m") || activity.Text.Contains("n") || activity.Text.Contains("o") || 
+                activity.Text.Contains("p") || activity.Text.Contains("q") || activity.Text.Contains("r") || 
+                activity.Text.Contains("s") || activity.Text.Contains("t") || activity.Text.Contains("v") || 
+                activity.Text.Contains("x") || activity.Text.Contains("y") || activity.Text.Contains("z"))
+                {
+                    await context.PostAsync("Por favor ingrese solo numeros");
+                    await context.PostAsync("Cuantos años tenes?");                    
+                    context.Wait(MessageAgeReceived);                    
+                }
+                else
+                {
+                    int banderita = 1;
+                    if(Double.Parse(activity.Text)<15)
+                    {
+                        banderita = 0;
+                        await context.PostAsync("Eres muy joven para viajar, no te parece?");
+                        await context.PostAsync("Por favor ingrese una edad mayor");
+                        context.Wait(MessageAgeReceived);
+                    }
+                    if(Double.Parse(activity.Text)>100)
+                    {
+                        banderita = 0;
+                        await context.PostAsync("Wow, el unico viaje que se me ocurre para usted es uno solo de ida al cementerio");
+                        await context.PostAsync("Por favor ingrese una edad menor");
+                        context.Wait(MessageAgeReceived);
+                    }
+                    if (banderita == 1)
+                    {
+                        age = Double.Parse(activity.Text);
+                        await context.PostAsync("Cual es su presupuesto?");
+                        control = 0;
+                        context.Wait(MessageBudgetReceived);
+                    }
+                   
+                        
+                    
+                    
+                }
+                
             }
             if (control == 1)
             {
@@ -192,12 +238,49 @@ namespace TuriReBot.Dialogs
             control = Agecontrolar(activity.Text);
             if (control == 0)
             {
-                budget = Double.Parse(activity.Text);
-                fuzzy = new ControladorDifuso();
-                respuesta1 = fuzzy.FuzzyEngine.Defuzzify(new { age, budget });
-                await context.PostAsync("Y el proposito de su viaje es?");
-                control = 0;
-                context.Wait(MessagePurposeReceived);
+               if (
+               activity.Text.Contains("a") || activity.Text.Contains("b") || activity.Text.Contains("c") ||
+               activity.Text.Contains("d") || activity.Text.Contains("e") || activity.Text.Contains("f") ||
+               activity.Text.Contains("g") || activity.Text.Contains("h") || activity.Text.Contains("i") ||
+               activity.Text.Contains("j") || activity.Text.Contains("k") || activity.Text.Contains("l") ||
+               activity.Text.Contains("m") || activity.Text.Contains("n") || activity.Text.Contains("o") ||
+               activity.Text.Contains("p") || activity.Text.Contains("q") || activity.Text.Contains("r") ||
+               activity.Text.Contains("s") || activity.Text.Contains("t") || activity.Text.Contains("v") ||
+               activity.Text.Contains("x") || activity.Text.Contains("y") || activity.Text.Contains("z"))
+                {
+                    await context.PostAsync("Por favor ingrese solo numeros");
+                    await context.PostAsync("Cual es su presupuesto?");                    
+                    context.Wait(MessageBudgetReceived);
+                }
+                else
+                {
+                    int banderota = 1;
+                    if (Double.Parse(activity.Text) < 1000)
+                    {
+                        banderota = 0;
+                        await context.PostAsync("Creo que debes ahorrar más para realizar un viaje");
+                        await context.PostAsync("Ingrese un monto mayor");
+                        context.Wait(MessageBudgetReceived);
+                    }
+                    if (Double.Parse(activity.Text) > 1000000)
+                    {
+                        banderota = 0;
+                        await context.PostAsync("No te parece demasiado dinero para un solo viaje?");
+                        await context.PostAsync("Ingrese un monto menor");
+                        context.Wait(MessageBudgetReceived);
+                    }
+                    if (banderota == 1)
+                    {
+                        budget = Double.Parse(activity.Text);
+                        fuzzy = new ControladorDifuso();
+                        respuesta1 = fuzzy.FuzzyEngine.Defuzzify(new { age, budget });
+                        await context.PostAsync("Y el proposito de su viaje es?");
+                        control = 0;
+                        context.Wait(MessagePurposeReceived);
+                    }
+                    
+                }
+                
             }
             if (control == 1)
             {
@@ -252,23 +335,40 @@ namespace TuriReBot.Dialogs
                 pur = activity.Text;
                 fuzzy2 = new ControladorDifuso2();
                 Double purpose = 0;
-                if (pur.Contains("familiar"))
+                int bandera = 0;
+                if (pur.Contains("familiar") || pur.Contains("familia") || pur.Contains("hijo")
+                    || pur.Contains("niños") || pur.Contains("bebes") || pur.Contains("hija"))
                 {
                     purpose = 50;
+                    bandera = 1;
                 }
-                if (pur.Contains("romantico"))
+                if (pur.Contains("romantico") || pur.Contains("pareja") || pur.Contains("espos")
+                    || pur.Contains("amante") || pur.Contains("amor") || pur.Contains("luna de miel")
+                    || pur.Contains("novi") || pur.Contains("conyuge"))
                 {
                     purpose = 100;
+                    bandera = 1;
                 }
-                if (pur.Contains("amigos"))
+                if (pur.Contains("amigo") || pur.Contains("diversion") || pur.Contains("fiesta")
+                    || pur.Contains("joda") || pur.Contains("parran"))
                 {
                     purpose = 150;
+                    bandera = 1;
                 }
-                Double reach = Double.Parse(respuesta1.ToString());
-                respuesta2 = fuzzy2.FuzzyEngine.Defuzzify(new { purpose, reach });
-                await context.PostAsync("Como le gusta el clima?");
-                control = 0;
-                context.Wait(MessageTemperatureReceived);
+                if (bandera == 0)
+                {
+                    await context.PostAsync("No entendi el proposito de tu viaje, prueba alguno de los siguientes: romantico, amigos, familia");
+                    context.Wait(MessagePurposeReceived);
+                }
+                if (bandera == 1)
+                {
+                    Double reach = Double.Parse(respuesta1.ToString());
+                    respuesta2 = fuzzy2.FuzzyEngine.Defuzzify(new { purpose, reach });
+                    await context.PostAsync("Como le gusta el clima?");
+                    control = 0;
+                    context.Wait(MessageTemperatureReceived);
+                }
+                
             }
             if (control == 1)
             {
@@ -330,115 +430,125 @@ namespace TuriReBot.Dialogs
                 temp = activity.Text;
                 fuzzy3 = new ControladorDifuso3();
                 Double temperature = 0;
-                if (temp.Contains("frio"))
+                int bandera = 0;
+                if (temp.Contains("frio") || temp.Contains("helado") || temp.Contains("fresco") 
+                    || temp.Contains("congelado") || temp.Contains("invernal"))
                 {
                     temperature = 50;
+                    bandera = 1;
                 }
-                if (temp.Contains("templado"))
+                if (temp.Contains("templado") || temp.Contains("normal") || temp.Contains("ni frio ni caliente")
+                    || temp.Contains("me da igual"))
                 {
                     temperature = 100;
+                    bandera = 1;
                 }
-                if (temp.Contains("caliente"))
+                if (temp.Contains("caliente") || temp.Contains("caluroso") || temp.Contains("tropical")
+                    || temp.Contains("arido") || temp.Contains("calido") || temp.Contains("desertico"))
                 {
                     temperature = 150;
+                    bandera = 1;
                 }
-                Double sublist = Double.Parse(respuesta2.ToString());
-                respuesta3 = fuzzy3.FuzzyEngine.Defuzzify(new { sublist, temperature });
-                var switchcondition = Int32.Parse(respuesta3.ToString());
-                switch (switchcondition)
+                if (bandera == 0)
                 {
-                    case 50:
-                        respuesta4 = Destinos[0].Name;
-                        break;
-                    case 100:
-                        respuesta4 = Destinos[1].Name + ", " + Destinos[2].Name;
-                        break;
-                    case 150:
-                        respuesta4 = Destinos[1].Name + ", " + Destinos[2].Name;
-                        break;
-                    case 200:
-                        respuesta4 = Destinos[4].Name;
-                        break;
-                    case 250:
-                        respuesta4 = Destinos[4].Name + ", " + Destinos[5].Name;
-                        break;
-                    case 300:
-                        respuesta4 = Destinos[3].Name + ", " + Destinos[6].Name + ", " + Destinos[7].Name;
-                        break;
-                    case 350:
-                        respuesta4 = "";
-                        break;
-                    case 400:
-                        respuesta4 = Destinos[8].Name + ", " + Destinos[9].Name;
-                        break;
-                    case 450:
-                        respuesta4 = Destinos[8].Name + ", " + Destinos[9].Name;
-                        break;
-                    case 500:
-                        respuesta4 = Destinos[10].Name + ", " + Destinos[11].Name;
-                        break;
-                    case 550:
-                        respuesta4 = Destinos[11].Name + ", " + Destinos[25].Name;
-                        break;
-                    case 600:
-                        respuesta4 = Destinos[25].Name;
-                        break;
-                    case 650:
-                        respuesta4 = Destinos[15].Name;
-                        break;
-                    case 700:
-                        respuesta4 = Destinos[14].Name + ", " + Destinos[15].Name;
-                        break;
-                    case 750:
-                        respuesta4 = Destinos[14].Name + ", " + Destinos[12].Name + ", " + Destinos[13].Name;
-                        break;
-                    case 800:
-                        respuesta4 = Destinos[16].Name + ", " + Destinos[17].Name + ", " + Destinos[18].Name;
-                        break;
-                    case 850:
-                        respuesta4 = Destinos[16].Name + ", " + Destinos[17].Name + ", " + Destinos[18].Name + ", " + Destinos[19].Name + ", " +
-                        Destinos[20].Name + ", " + Destinos[21].Name + ", " + Destinos[23].Name;
-                        break;
-                    case 900:
-                        respuesta4 = Destinos[22].Name + ", " + Destinos[19].Name + ", " + Destinos[20].Name + ", " + Destinos[23].Name;
-                        break;
-                    case 950:
-                        respuesta4 = Destinos[10].Name;
-                        break;
-                    case 1000:
-                        respuesta4 = Destinos[24].Name + ", " + Destinos[25].Name;
-                        break;
-                    case 1050:
-                        respuesta4 = Destinos[24].Name + ", " + Destinos[25].Name;
-                        break;
-                    case 1100:
-                        respuesta4 = Destinos[15].Name;
-                        break;
-                    case 1150:
-                        respuesta4 = Destinos[5].Name + ", " + Destinos[15].Name;
-                        break;
-                    case 1200:
-                        respuesta4 = Destinos[26].Name + ", " + Destinos[27].Name + ", " + Destinos[28].Name;
-                        break;
-                    case 1250:
-                        respuesta4 = Destinos[31].Name + ", " + Destinos[30].Name;
-                        break;
-                    case 1300:
-                        respuesta4 = Destinos[29].Name + ", " + Destinos[31].Name + ", " + Destinos[30].Name;
-                        break;
-                    case 1350:
-                        respuesta4 = Destinos[29].Name + ", " + Destinos[32].Name;
-                        break;
+                    await context.PostAsync("No entendi el clima que prefieres, prueba alguno de los siguientes: frio, templado, caliente");
+                    context.Wait(MessageTemperatureReceived);
                 }
-                control = 0;
-                await context.PostAsync("Le recomendamos los siguientes destinos: " + respuesta4.ToString());
-                /*await context.PostAsync("Gracias por usar Turibot, que tenga un buen viaje y recuerde: " +
-                                        "In my talons, I shape clay, crafting life forms as I please. If I wish, I can smash " +
-                                        "it all. Around me is a burgeoning empire of steel. From my throne room, lines of power " +
-                                        "careen into the skies of Earth. My whims will become lightning bolts that raze the mounds " +
-                                        "of humanity. Out of the chaos, they will run and whimper, praying for me to end their " +
-                                        "tedious anarchy. I am drunk with this vision. God: the title suits me well.");*/
-                context.Wait(MessageRestartReceived);
+                if (bandera == 1)
+                {
+                    Double sublist = Double.Parse(respuesta2.ToString());
+                    respuesta3 = fuzzy3.FuzzyEngine.Defuzzify(new { sublist, temperature });
+                    var switchcondition = Int32.Parse(respuesta3.ToString());
+                    switch (switchcondition)
+                    {
+                        case 50:
+                            respuesta4 = Destinos[0].Name;
+                            break;
+                        case 100:
+                            respuesta4 = Destinos[1].Name + ", " + Destinos[2].Name;
+                            break;
+                        case 150:
+                            respuesta4 = Destinos[1].Name + ", " + Destinos[2].Name;
+                            break;
+                        case 200:
+                            respuesta4 = Destinos[4].Name;
+                            break;
+                        case 250:
+                            respuesta4 = Destinos[4].Name + ", " + Destinos[5].Name;
+                            break;
+                        case 300:
+                            respuesta4 = Destinos[3].Name + ", " + Destinos[6].Name + ", " + Destinos[7].Name;
+                            break;
+                        case 350:
+                            respuesta4 = "";
+                            break;
+                        case 400:
+                            respuesta4 = Destinos[8].Name + ", " + Destinos[9].Name;
+                            break;
+                        case 450:
+                            respuesta4 = Destinos[8].Name + ", " + Destinos[9].Name;
+                            break;
+                        case 500:
+                            respuesta4 = Destinos[10].Name + ", " + Destinos[11].Name;
+                            break;
+                        case 550:
+                            respuesta4 = Destinos[11].Name + ", " + Destinos[25].Name;
+                            break;
+                        case 600:
+                            respuesta4 = Destinos[25].Name;
+                            break;
+                        case 650:
+                            respuesta4 = Destinos[15].Name;
+                            break;
+                        case 700:
+                            respuesta4 = Destinos[14].Name + ", " + Destinos[15].Name;
+                            break;
+                        case 750:
+                            respuesta4 = Destinos[14].Name + ", " + Destinos[12].Name + ", " + Destinos[13].Name;
+                            break;
+                        case 800:
+                            respuesta4 = Destinos[16].Name + ", " + Destinos[17].Name + ", " + Destinos[18].Name;
+                            break;
+                        case 850:
+                            respuesta4 = Destinos[16].Name + ", " + Destinos[17].Name + ", " + Destinos[18].Name + ", " + Destinos[19].Name + ", " +
+                            Destinos[20].Name + ", " + Destinos[21].Name + ", " + Destinos[23].Name;
+                            break;
+                        case 900:
+                            respuesta4 = Destinos[22].Name + ", " + Destinos[19].Name + ", " + Destinos[20].Name + ", " + Destinos[23].Name;
+                            break;
+                        case 950:
+                            respuesta4 = Destinos[10].Name;
+                            break;
+                        case 1000:
+                            respuesta4 = Destinos[24].Name + ", " + Destinos[25].Name;
+                            break;
+                        case 1050:
+                            respuesta4 = Destinos[24].Name + ", " + Destinos[25].Name;
+                            break;
+                        case 1100:
+                            respuesta4 = Destinos[15].Name;
+                            break;
+                        case 1150:
+                            respuesta4 = Destinos[5].Name + ", " + Destinos[15].Name;
+                            break;
+                        case 1200:
+                            respuesta4 = Destinos[26].Name + ", " + Destinos[27].Name + ", " + Destinos[28].Name;
+                            break;
+                        case 1250:
+                            respuesta4 = Destinos[31].Name + ", " + Destinos[30].Name;
+                            break;
+                        case 1300:
+                            respuesta4 = Destinos[29].Name + ", " + Destinos[31].Name + ", " + Destinos[30].Name;
+                            break;
+                        case 1350:
+                            respuesta4 = Destinos[29].Name + ", " + Destinos[32].Name;
+                            break;
+                    }
+                    control = 0;
+                    await context.PostAsync("Le recomendamos los siguientes destinos: " + respuesta4.ToString());
+                    context.Wait(MessageRestartReceived);
+                }
+                
             }
             if (control == 1)
             {
@@ -540,6 +650,12 @@ namespace TuriReBot.Dialogs
             {
                 return 5;
             }
+            if (text.Contains("1") || text.Contains ("2") || text.Contains ("3") || text.Contains ("4") ||
+                text.Contains("5") || text.Contains ("6") || text.Contains ("7") || text.Contains ("8") ||
+                text.Contains("9") || text.Contains ("0"))
+            {
+                return 6;
+            }
             return 0;
         }
 
@@ -551,6 +667,12 @@ namespace TuriReBot.Dialogs
             {
                 return 6;
             }
+            if (text.Contains("1") || text.Contains("2") || text.Contains("3") || text.Contains("4") ||
+               text.Contains("5") || text.Contains("6") || text.Contains("7") || text.Contains("8") ||
+               text.Contains("9") || text.Contains("0"))
+            {
+                return 0;
+            }        
             return Controlar(values);
         }
 
@@ -562,6 +684,12 @@ namespace TuriReBot.Dialogs
                text.Contains("dime mi edad"))
             {
                 return 7;
+            }
+            if (text.Contains("1") || text.Contains("2") || text.Contains("3") || text.Contains("4") ||
+               text.Contains("5") || text.Contains("6") || text.Contains("7") || text.Contains("8") ||
+               text.Contains("9") || text.Contains("0"))
+            {
+                return 0;
             }
             return Namecontrolar(values);
         }
